@@ -25,3 +25,14 @@ section {
     margin-bottom: 20px;
     border-radius: 6px;
 }
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.project {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 3px solid #ccc;
+}
