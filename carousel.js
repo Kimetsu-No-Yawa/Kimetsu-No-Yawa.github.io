@@ -5,7 +5,6 @@ function setupCarousel(carouselId) {
     let currentIndex = 0;
     let intervalId;
 
-    // Position all images side by side initially
     images.forEach((img, i) => {
         img.style.transform = `translateX(${i * 100}%)`;
         img.style.position = "absolute";
@@ -22,7 +21,6 @@ function setupCarousel(carouselId) {
             img.style.transform = `translateX(${(i - index) * 100}%)`;
         });
 
-        // Description fade-in
         desc.classList.remove("active");
         setTimeout(() => {
             desc.textContent = images[index].dataset.desc;
@@ -40,7 +38,6 @@ function setupCarousel(carouselId) {
         showImage(currentIndex);
     }
 
-    // Arrows (only desktop)
     if (window.innerWidth > 768) {
         const prevBtn = document.createElement("button");
         prevBtn.textContent = "<";
@@ -55,11 +52,9 @@ function setupCarousel(carouselId) {
         container.append(prevBtn, nextBtn);
     }
 
-    // Auto-play every 7 seconds
     function startAuto() { intervalId = setInterval(nextImage, 7000); }
     function stopAuto() { clearInterval(intervalId); }
 
-    // Swipe support (mobile)
     let startX = 0;
     container.addEventListener('touchstart', e => startX = e.touches[0].clientX);
     container.addEventListener('touchend', e => {
@@ -73,7 +68,6 @@ function setupCarousel(carouselId) {
         }
     });
 
-    // Click-to-enlarge lightbox
     function createLightbox() {
         let lightbox = document.createElement('div');
         lightbox.id = 'lightbox';
@@ -122,7 +116,6 @@ function setupCarousel(carouselId) {
     showImage(currentIndex);
     startAuto();
 
-    // Resize listener to toggle arrows on desktop/mobile dynamically
     window.addEventListener('resize', () => {
         const arrowsExist = container.querySelector('.carousel-arrow');
         if (window.innerWidth <= 768 && arrowsExist) {
@@ -141,6 +134,5 @@ function setupCarousel(carouselId) {
     });
 }
 
-// Initialize carousels
 setupCarousel("customer-carousel");
 setupCarousel("admin-carousel");
