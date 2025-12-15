@@ -237,7 +237,6 @@ function setupCarousel(carouselId) {
     });
 
     showImage(currentIndex);
-    // Mobile swipe support
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -252,7 +251,7 @@ container.addEventListener('touchend', e => {
 
 function handleSwipe() {
     const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 50) { // swipe threshold
+    if (Math.abs(diff) > 50) {
         if (diff > 0) nextImage();
         else prevImage();
         stopAuto();
