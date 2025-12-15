@@ -265,3 +265,4 @@ function handleSwipe() {
 setupCarousel("customer-carousel");
 setupCarousel("admin-carousel");
 setupCarousel("gym-carousel");
+setupCarousel("lastlight-carousel");
